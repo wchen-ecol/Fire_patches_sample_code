@@ -1,6 +1,7 @@
 # author: Wentao Chen, CEFE, CNRS, wentao.chen@cefe.cnrs.fr
 # based on a script from Manuel campagnolo, ISA/ULisboa, mlc@isa.ulisboa.pt
-# last change: Nov., 2019
+# Purpose: find fire patches from Burn Area products, record patches id for each BA pixel, adapted for machines of small memory (<64Gb)
+# last change: Dec., 2019
 
 
 ############################# TODO ###################################
@@ -35,8 +36,8 @@ work_dir <- "~/Fdb_project/src/RUN/sample_data/" # modify here
 # res_dir <- "D:\\firecci_5.1/Results/"
 res_dir <- "~/Fdb_project/src/RUN/sample_data/res/"
 
-Ncores <- 6 # number of cores to do memory-heavy jobs
-Ncores_light <- 8 # number of cores to do memory-light jobs (e.g. splitting rasters)
+Ncores <- 1 # number of cores to do memory-heavy jobs
+Ncores_light <- 1 # number of cores to do memory-light jobs (e.g. splitting rasters)
 Nthread_dt <- 5
 N<- 8 #10 # number of "horizontal" blocks (to be able to process large rasters)
 DELTAD <- 5 # temporal gap: if 1, then two BA pixels will belong to the same patch if they are neighbors in space and dates differ by at most 2*D
