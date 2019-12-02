@@ -69,7 +69,7 @@ my_add_edges <- function(graph, edges) {
   }
   edges.orig <- ecount(graph) 
   rb <- as.integer(edges[, rbind(v1, v2)])
-  on.exit( .Call(igraph:::C_R_igraph_finalizer) )
+  on.exit(.Call(igraph:::C_R_igraph_finalizer))
   graph <- .Call(igraph:::C_R_igraph_add_edges, graph, rb - 1)
   edges.new <- ecount(graph)
   
@@ -89,7 +89,7 @@ make_graph_from_dt <- function(edges, nv, directed = FALSE) {
   # directed <- F
   # system.time(names <- dt[, union(unique(v1), unique(v2))])
   g <- make_empty_graph(nv, directed=directed)
-  g <- my_add_edges(g, edges)
+  g <- my_add_edges(g, edges) # requires a large amount of memory
   gc()
   g
 }
